@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 
 const Card = (props) => {
   return (
@@ -25,7 +25,9 @@ const Card = (props) => {
             </div>
 
             <div>
-              <dd className="font-medium text-#323A39">{props?.recipe?.title}</dd>
+              <dd className="font-medium text-#323A39">
+                {props?.recipe?.title}
+              </dd>
             </div>
           </dl>
 
@@ -42,8 +44,12 @@ const Card = (props) => {
 
             <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
               <div className="mt-1.5 sm:mt-0">
-              <p className="text-#4F8D6D text-sm font-mono">Fat</p>
-                <p className=" text-sm font-mono text-gray-500">{props?.recipe?.fat}</p>
+                <p className="text-#4F8D6D text-sm font-mono">Fat</p>
+                <p className=" text-sm font-mono text-gray-500">
+                  {props?.recipe?.fat ||
+                    Math.floor(props?.recipe?.nutrition.nutrients[0].amount) +
+                      "g"}
+                </p>
               </div>
             </div>
           </div>

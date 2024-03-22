@@ -3,6 +3,8 @@ import Card from "../components/Card";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import recipeService from "../services/RecipeApi";
+import toast, { Toaster } from 'react-hot-toast';
+import Footer from "../components/Footer";
 
 const Home = () => {
   const [recipes, setRecipes] = useState([]);
@@ -10,212 +12,10 @@ const Home = () => {
 
   async function getRecipes() {
     try {
-    //   const data = await recipeService.getAllRecipe();
-    //   const json = await data.json();
-    //   setRecipes(json);
-    setRecipes([
-        {
-            "id": 149241,
-            "title": "Stevia-Sweetened Currant Banana Bread",
-            "image": "https://spoonacular.com/recipeImages/149241-312x231.jpg",
-            "imageType": "jpg",
-            "calories": 186,
-            "protein": "5g",
-            "fat": "8g",
-            "carbs": "22g"
-        },
-        {
-            "id": 627987,
-            "title": "onion pakoda recipe",
-            "image": "https://spoonacular.com/recipeImages/627987-312x231.jpg",
-            "imageType": "jpg",
-            "calories": 218,
-            "protein": "10g",
-            "fat": "6g",
-            "carbs": "26g"
-        },
-        {
-            "id": 633569,
-            "title": "Baked Crusty Chicken",
-            "image": "https://spoonacular.com/recipeImages/633569-312x231.jpg",
-            "imageType": "jpg",
-            "calories": 367,
-            "protein": "26g",
-            "fat": "24g",
-            "carbs": "10g"
-        },
-        {
-            "id": 635248,
-            "title": "Blackberry Walnut Cookies",
-            "image": "https://spoonacular.com/recipeImages/635248-312x231.jpg",
-            "imageType": "jpg",
-            "calories": 142,
-            "protein": "2g",
-            "fat": "6g",
-            "carbs": "19g"
-        },
-        {
-            "id": 636178,
-            "title": "Broccoli Cheddar Soup, A Panera Bread Co. Copycat",
-            "image": "https://spoonacular.com/recipeImages/636178-312x231.jpg",
-            "imageType": "jpg",
-            "calories": 611,
-            "protein": "25g",
-            "fat": "46g",
-            "carbs": "24g"
-        },
-        {
-            "id": 636392,
-            "title": "Buckwheat Crepes",
-            "image": "https://spoonacular.com/recipeImages/636392-312x231.jpg",
-            "imageType": "jpg",
-            "calories": 374,
-            "protein": "13g",
-            "fat": "14g",
-            "carbs": "48g"
-        },
-        {
-            "id": 636574,
-            "title": "Buttermilk Skillet Fried Chicken",
-            "image": "https://spoonacular.com/recipeImages/636574-312x231.jpg",
-            "imageType": "jpg",
-            "calories": 657,
-            "protein": "49g",
-            "fat": "43g",
-            "carbs": "14g"
-        },
-        {
-            "id": 637184,
-            "title": "Carrot Cake Pancakes",
-            "image": "https://spoonacular.com/recipeImages/637184-312x231.jpg",
-            "imageType": "jpg",
-            "calories": 143,
-            "protein": "4g",
-            "fat": "5g",
-            "carbs": "19g"
-        },
-        {
-            "id": 637932,
-            "title": "Chicken and White Bean Chili",
-            "image": "https://spoonacular.com/recipeImages/637932-312x231.jpg",
-            "imageType": "jpg",
-            "calories": 433,
-            "protein": "24g",
-            "fat": "29g",
-            "carbs": "15g"
-        },
-        {
-            "id": 641974,
-            "title": "Easy Gift Lasagna",
-            "image": "https://spoonacular.com/recipeImages/641974-312x231.jpg",
-            "imageType": "jpg",
-            "calories": 307,
-            "protein": "17g",
-            "fat": "18g",
-            "carbs": "18g"
-        },
-        {
-            "id": 642583,
-            "title": "Farfalle with Peas, Ham and Cream",
-            "image": "https://spoonacular.com/recipeImages/642583-312x231.jpg",
-            "imageType": "jpg",
-            "calories": 397,
-            "protein": "15g",
-            "fat": "16g",
-            "carbs": "44g"
-        },
-        {
-            "id": 654571,
-            "title": "Panna Cotta with Raspberry and Orange Sauce",
-            "image": "https://spoonacular.com/recipeImages/654571-312x231.jpg",
-            "imageType": "jpg",
-            "calories": 396,
-            "protein": "8g",
-            "fat": "27g",
-            "carbs": "28g"
-        },
-        {
-            "id": 657972,
-            "title": "Raw Chocolate Energy Bars",
-            "image": "https://spoonacular.com/recipeImages/657972-312x231.jpg",
-            "imageType": "jpg",
-            "calories": 190,
-            "protein": "6g",
-            "fat": "10g",
-            "carbs": "20g"
-        },
-        {
-            "id": 660261,
-            "title": "Slow Cooked Applesauce",
-            "image": "https://spoonacular.com/recipeImages/660261-312x231.jpg",
-            "imageType": "jpg",
-            "calories": 62,
-            "protein": "0g",
-            "fat": "0g",
-            "carbs": "14g"
-        },
-        {
-            "id": 660292,
-            "title": "Slow Cooker Minestrone Soup",
-            "image": "https://spoonacular.com/recipeImages/660292-312x231.jpg",
-            "imageType": "jpg",
-            "calories": 148,
-            "protein": "7g",
-            "fat": "2g",
-            "carbs": "22g"
-        },
-        {
-            "id": 661480,
-            "title": "St. Lucia saffron buns",
-            "image": "https://spoonacular.com/recipeImages/661480-312x231.jpg",
-            "imageType": "jpg",
-            "calories": 230,
-            "protein": "7g",
-            "fat": "5g",
-            "carbs": "37g"
-        },
-        {
-            "id": 665019,
-            "title": "Watermelon Leaf Lettuce Salad With Light Feta",
-            "image": "https://spoonacular.com/recipeImages/665019-312x231.jpg",
-            "imageType": "jpg",
-            "calories": 248,
-            "protein": "5g",
-            "fat": "18g",
-            "carbs": "16g"
-        },
-        {
-            "id": 679509,
-            "title": "Not Your Normal Seven Layer Dip",
-            "image": "https://spoonacular.com/recipeImages/679509-312x231.jpg",
-            "imageType": "jpg",
-            "calories": 163,
-            "protein": "7g",
-            "fat": "6g",
-            "carbs": "13g"
-        },
-        {
-            "id": 715397,
-            "title": "Cheesy Chicken and Rice Casserole",
-            "image": "https://spoonacular.com/recipeImages/715397-312x231.jpg",
-            "imageType": "jpg",
-            "calories": 464,
-            "protein": "31g",
-            "fat": "28g",
-            "carbs": "21g"
-        },
-        {
-            "id": 1459207,
-            "title": "Easy Sheet Pan Pancakes",
-            "image": "https://spoonacular.com/recipeImages/1459207-312x231.jpg",
-            "imageType": "jpg",
-            "calories": 218,
-            "protein": "6g",
-            "fat": "8g",
-            "carbs": "28g"
-        }
-    ])
-
+        const data = await recipeService.getAllRecipe();
+        const json = await data.json();
+        setRecipes(json);
+    
     } catch (error) {
       console.log(error.message);
     }
@@ -224,8 +24,6 @@ const Home = () => {
   useEffect(() => {
     getRecipes();
   }, []);
-
-  
 
   const filterRecipe = async (e) => {
     e.preventDefault();
@@ -236,18 +34,30 @@ const Home = () => {
       } else {
         const response = await recipeService.searchRecipe(search);
         const searchedRecipe = await response.json();
+        console.log(searchedRecipe.results);
         setRecipes(searchedRecipe.results);
       }
     } catch (error) {
-      console.log(error);
+      toast.error(error.message);
     }
   };
+
+  async function handleFilterRecipe(item) {
+    try {
+      const response = await recipeService.searchRecipe(item);
+      const filterRecipe = await response.json();
+      setRecipes(filterRecipe.results);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <>
       <Header />
       <div className="flex flex-col lg:flex-row items-center lg:items-start">
         <div className="sticky top-0">
+        <Toaster/>
           <div className="relative w-80 m-10">
             <label htmlFor="search" className="sr-only">
               Search
@@ -291,6 +101,37 @@ const Home = () => {
           </div>
         </div>
         <div className="flex flex-wrap justify-center w-2/3 m-4 rounded-md overflow-hidden p-3">
+          <div className=" lg:flex lg:justify-start  lg:w-[60vw] flex-col shadow-lg p-1  bg-white rounded-full mx-4">
+            <div className="flex justify-evenly p-3">
+              <h1 className="font-bold text-md lg:text-xl  text-#323A39   rounded-3xl ">
+                Filter:
+              </h1>
+              <button
+                onClick={() => handleFilterRecipe("cake")}
+                className="font-bold text-md    text-#323A39 hover:text-#43BEAB mx-2  rounded-3xl "
+              >
+                Cake
+              </button>
+              <button
+                onClick={() => handleFilterRecipe("chicken")}
+                className="font-bold text-md    text-#323A39 hover:text-#43BEAB mx-2  rounded-3xl  "
+              >
+                Chicken
+              </button>
+              <button
+                onClick={() => handleFilterRecipe("biryani")}
+                className="font-bold text-md    text-#323A39 hover:text-#43BEAB mx-2  rounded-3xl "
+              >
+                Biryani
+              </button>
+              <button
+                onClick={() => handleFilterRecipe("pasta")}
+                className="font-bold text-md  text-#323A39 hover:text-#43BEAB mx-2  rounded-3xl "
+              >
+                Pasta
+              </button>
+            </div>
+          </div>
           {recipes.map((recipe) => (
             <Card recipe={recipe} key={recipe.id} />
           ))}
